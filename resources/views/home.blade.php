@@ -1,24 +1,13 @@
-<h1>
-Welcome to Habit Tracker
-</h1>
-<p>
-    Olá, {{ $name }}
-</p>
-<ul>
-    @foreach ( $habits as $item )
-        <li>{{ $item }}</li>
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ config('app.name') }}</title>
+
+        @vite('resources/css/app.css')
         
-    @endforeach
-</ul>
-
-@auth
-    <p>
-        Você está logado!
-    </p>
-@endauth
-
-@guest
-    <p>
-        Você não está logado!
-    </p>
-@endguest
+    </head>
+    <body>
+    </body>
+</html>
