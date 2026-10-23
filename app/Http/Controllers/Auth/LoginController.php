@@ -16,11 +16,9 @@ class LoginController extends Controller
     }
 
     // POST /login
-    public function authenticate(Request $request): RedirectResponse
+    public function authenticate(LoginRequest $request): RedirectResponse
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
+        $credentials = $request->only(['email', 'password'
         ]);
 
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
