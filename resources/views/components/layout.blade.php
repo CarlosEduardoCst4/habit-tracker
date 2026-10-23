@@ -11,11 +11,11 @@
     </head>
     <body class="bg-[#FFEDD6]">
         {{-- HEADER --}}
-        <x-header/>
+        <x-header></x-header>
         <!-- Aqui começa meu slot -->
         {{ $slot }}
         <!-- Aqui termina meu slot -->
         {{-- FOOTER --}}
-        <x-footer/>
+        <x-footer></x-footer>
     </body>
 </html>

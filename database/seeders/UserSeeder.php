@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-Use App\Models\User;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -12,10 +12,9 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::query()->create([
-            'name' => 'Carlos',
-            'email' => 'carlos@gmail.com',
-            'password' => '123456',
-        ]);
+        User::query()->updateOrCreate(
+            ['email' => 'carlos@gmail.com'],
+            ['name' => 'Carlos', 'password' => '123456'],
+        );
     }
 }

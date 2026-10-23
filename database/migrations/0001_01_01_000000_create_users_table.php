@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
 
@@ -30,11 +31,11 @@ return new class extends Migration
     }
 
     /**
-     * Reverse the migrations.php artisan migrate:fresh --seed
+     * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
         Schema::dropIfExists('sessions');
+        Schema::dropIfExists('users');
     }
 };

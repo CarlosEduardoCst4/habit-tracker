@@ -2,7 +2,6 @@
     <main class="py-10"> <h1> 
         Veja seus Hábitos ganharem vida
     </h1>
-
     @auth
         <p>
             Bem-vindo, {{ auth()->user()->name }}!
