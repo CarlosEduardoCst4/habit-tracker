@@ -15,24 +15,14 @@ class RegisterController extends Controller
     // POST /cadastro
     public function store(RegisterRequest $request)
     {
-        // Validate the request data
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
+        $user =User::query()->create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
         ]);
 
-        // Create a new user
-        $user = \App\Models\User::create([
-            'name' => $validatedData['name'],
-            'email' => $validatedData['email'],
-            'password' => bcrypt($validatedData['password']),
-        ]);
-
-        // Log the user in
         auth()->login($user);
 
-        // Redirect to the dashboard or any other page
         return redirect()->route('site.dashboard');
     }
 }
